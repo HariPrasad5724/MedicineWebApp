@@ -1,0 +1,25 @@
+.sidebar-item {
+  background:'black';
+  span {
+    i.icon {
+      margin-right: 20px;
+      color:'black';
+    }
+  }
+
+  &.highlight-item {
+    span {
+      font-weight: 600;
+    }
+
+    i.icon {
+      color: #ff0002;
+    }
+  }
+}
+
+
+.sidebar-item-alignment-container {
+  display: flex;
+  align-items: center;
+}
