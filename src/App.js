@@ -1,7 +1,7 @@
 import './App.css';
 import HeaderNav from './components/HeaderNav/HeaderNav.js';
 import SideBar from './components/SideBar/SideBar';
-import Movies from './components/Home/Home.jsx';
+import Medicines from './components/Home/Home.jsx';
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 function App() {
   return (
@@ -20,9 +20,11 @@ function App() {
       <Route path="/ListMedicine">
       <HeaderNav/>
       <SideBar/>
-      <Movies/>
+      <Medicines/>
       </Route>
-      <Route path="/SearchMedicine">
+      <Route path="/ListStore">
+      <HeaderNav/>
+      <SideBar/>
       </Route>
       </Switch>
       </div>

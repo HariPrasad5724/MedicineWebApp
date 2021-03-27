@@ -9,8 +9,8 @@ export class SideBar extends React.Component {
     return (
       <div>
         <Menu borderless vertical stackable fixed="left" className="side-nav">
-          <SideBarItem label="Dashboard" icon="home" />
-          <SideBarItem label="Near by Store" icon="hospital" />
+          <SideBarItem label="List Medicine" icon="home" />
+          <SideBarItem label="Store List" icon="hospital" />
           <SideBarItem label="Search Medicine" icon="medkit" />
           <Divider />
           <SideBarHeader title="Your History" />
