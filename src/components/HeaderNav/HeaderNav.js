@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Icon, Image, Input, Menu } from "semantic-ui-react";
 import "./HeaderNav.scss";
 import logo1 from "../../assets/images/logo2.jpg";
-import {getMedicine} from '../../services/fakeMedicineService';
+import { getMedicineByName } from "../../services/fakeMedicineService";
 export class HeaderNav extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ export class HeaderNav extends React.Component {
       query: "",
     };
   }
-  
+
   render() {
     return (
       <Menu borderless className="top-menu" fixed="top">
@@ -45,7 +45,6 @@ export class HeaderNav extends React.Component {
         </Menu.Menu>
       </Menu>
     );
-    
   }
   onInputChange = (event) => {
     this.setState({
@@ -54,7 +53,8 @@ export class HeaderNav extends React.Component {
   };
 
   onSubmit = () => {
-    <div><h1>{getMedicine(this.state.query)}</h1></div>
+    var result = getMedicineByName(this.state.query);
+    console.log(result);
   };
 }
 export default HeaderNav;

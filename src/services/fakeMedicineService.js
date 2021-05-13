@@ -5,7 +5,7 @@ const medicines = [
     company: "Sun Ltd",
     originalMRP: 2,
     genericMRP: 1,
-    count:0,
+    count: 0,
   },
   {
     _id: "2",
@@ -34,31 +34,36 @@ const medicines = [
     company: "Fiefox Ltd",
     originalMRP: 3,
     genericMRP: 2,
-  }, {
+  },
+  {
     _id: "6",
     name: "Battolmin",
     company: "Crosin Ltd",
     originalMRP: 3,
     genericMRP: 1,
-  }, {
+  },
+  {
     _id: "7",
     name: "Vicks",
     company: "Balm Ltd",
     originalMRP: 4,
     genericMRP: 2,
-  }, {
+  },
+  {
     _id: "8",
     name: "Halthimin",
     company: "Krot Ltd",
     originalMRP: 5,
     genericMRP: 4,
-  }, {
+  },
+  {
     _id: "9",
     name: "Falcon",
     company: "Kings Ltd",
     originalMRP: 3,
     genericMRP: 1,
-  },{
+  },
+  {
     _id: "10",
     name: "Chlorophyll",
     company: "Sun Ltd",
@@ -92,30 +97,63 @@ const medicines = [
     company: "Fiefox Ltd",
     originalMRP: 3,
     genericMRP: 2,
-  }, {
+  },
+  {
     _id: "15",
     name: "Battolmin",
     company: "Crosin Ltd",
     originalMRP: 3,
     genericMRP: 1,
-  }, {
+  },
+  {
     _id: "16",
     name: "Vicks",
     company: "Balm Ltd",
     originalMRP: 4,
     genericMRP: 2,
-  }, {
+  },
+  {
     _id: "17",
     name: "Halthmin",
     company: "Krot Ltd",
     originalMRP: 5,
     genericMRP: 4,
-  }, {
+  },
+  {
     _id: "18",
     name: "Falcon",
     company: "Kings Ltd",
     originalMRP: 3,
     genericMRP: 1,
+  },
+  {
+    _id: "19",
+    name: "Dolo",
+    company: "Kings Ltd",
+    originalMRP: 3,
+    genericMRP: 1,
+  },
+  {
+    _id: "20",
+    name: "Remdeciever",
+    company: "Kings Ltd",
+    originalMRP: 1000,
+    genericMRP: 300,
+  },
+  {
+    _id: "21",
+    name: "Remdeciever",
+    company: "Lighting Ltd",
+    originalMRP: 1000,
+    genericMRP: 300,
+  },
+
+  {
+    _id: "22",
+    name: "Remdeciever",
+    company: "Hawaii Ltd",
+    originalMRP: 1005,
+    genericMRP: 300,
   },
 ];
 
@@ -125,6 +163,10 @@ export function getMedicines() {
 
 export function getMedicine(id) {
   return medicines.find((m) => m._id === id);
+}
+
+export function getMedicineByName(name) {
+  return medicines.find((m) => m.name.toLowerCase() === name);
 }
 
 export function deleteMedicines(id) {
