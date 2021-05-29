@@ -1,7 +1,8 @@
 import "./App.css";
 import HeaderNav from "./components/HeaderNav/HeaderNav.js";
 import SideBar from "./components/SideBar/SideBar";
-import Medicines from "./components/Home/Home.jsx";
+import DisplayMedicine from "./components/Home/Display";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //Add Search Items
 //Deploy backend and call from there must be implelemented
@@ -23,7 +24,7 @@ function App() {
             <Route path="/ListMedicine">
               <HeaderNav />
               <SideBar />
-              <Medicines />
+              <DisplayMedicine />
             </Route>
             <Route path="/ListStore">
               <HeaderNav />

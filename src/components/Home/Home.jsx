@@ -1,61 +1,39 @@
 import React, { Component } from "react";
-import { getMedicines } from "../../services/fakeMedicineService";
 import "./Home.css";
+import axios from "axios";
 import { Button, Icon } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 class Medicines extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      medicines: getMedicines(),
+      medicines: "",
       count: 0,
     };
+  }
+  componentDidMount() {
+    const api = `https://genericmedicinesapi.herokuapp.com/api/medicines/`;
+    axios
+      .get(api)
+      .then((res) => {
+        const medicines = res["data"]["objects"];
+        this.setState({ medicines: medicines });
+        console.log(medicines);
+      })
+      .catch((err) => console.log(err));
   }
   render() {
     return (
       <div>
-        <div>
-          <table className="center">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Original MRP</th>
-                <th>Generic MRP</th>
-                <th>Quantity</th>
-                <th>Count</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.medicines.map((medicines) => (
-                <tr>
-                  <td>{medicines.name}</td>
-                  <td>{medicines.company}</td>
-                  <td>{medicines.originalMRP}</td>
-                  <td>{medicines.genericMRP}</td>
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-success btn-sm"
-                      onClick={this.IncrementItem}
-                    >
-                      +
-                    </button>{" "}
-                    <button
-                      type="button"
-                      class="btn btn-danger btn-sm"
-                      onClick={this.DecreaseItem}
-                    >
-                      -
-                    </button>{" "}
-                  </td>
-                  <td>{this.state.count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
         <br></br>
+        {this.state.medicines.map((medicine, index) => (
+          <div key={index}>
+            <div>{medicine.name}</div>
+            <div>{medicine.mrp_rate}</div>
+            <div>{medicine.generic_rate}</div>
+          </div>
+        ))}
         <Button color="facebook" size="massive" animated="vertical">
           <Button.Content hidden>Cart</Button.Content>
           <Button.Content visible>
