@@ -18,6 +18,7 @@ function DisplayMedicine() {
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <div>
       <table className="center">
@@ -28,11 +29,12 @@ function DisplayMedicine() {
             <th>Generic MRP</th>
             <th>Quantity</th>
             <th>Count</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
-          {medicines.map((medicines) => (
-            <tr>
+          {medicines.map((medicines, index) => (
+            <tr key={index}>
               <td>{medicines.name}</td>
               <td>{medicines.mrp_rate}</td>
               <td>{medicines.generic_rate}</td>
@@ -46,7 +48,7 @@ function DisplayMedicine() {
                   }}
                 >
                   +
-                </button>{" "}
+                </button>
                 <button
                   type="button"
                   class="btn btn-danger btn-sm"
@@ -55,7 +57,7 @@ function DisplayMedicine() {
                   }}
                 >
                   -
-                </button>{" "}
+                </button>
               </td>
               <td>{count}</td>
             </tr>

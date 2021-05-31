@@ -20,6 +20,7 @@ function App() {
             <Route exact path="/Home">
               <HeaderNav />
               <SideBar />
+              <DisplayMedicine />
             </Route>
             <Route path="/ListMedicine">
               <HeaderNav />
