@@ -3,14 +3,12 @@ import "./Home.css";
 import axios from "axios";
 import { Button, Icon } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 function DisplayMedicine() {
   const [medicines, setMedicines] = useState([]);
   const [count, setCount] = useState(0);
   useEffect(() => {
-    const api = `https://genericmedicinesapi.herokuapp.com/api/medicines/`;
     axios
-      .get(api)
+      .get("https://genericmedicinesapi.herokuapp.com/api/medicines/")
       .then((res) => {
         const medicines = res["data"]["objects"];
         setMedicines(medicines);
